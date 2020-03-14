@@ -24,6 +24,7 @@ class SMUDevice:
         self.device.write(':SYST:BEEP:STAT OFF')
         self.disable_output()
         self.device.write('TRAC:CLE')
+        self.device.timeout = None
 
     def check_for_errors(self):
         """
@@ -58,7 +59,7 @@ class SMUDevice:
     def enable_display(self):
         self.device.write(':DISP:ENAB OFF', 0)
 
-    def setup_sense_subsystem(self, autorange=False, rang=1e-3, compl=1e-2, nplc=0.01):
+    def setup_sense_subsystem(self, autorange=False, rang=1e-3, compl=None, nplc=0.01):
         """
         set up current sense subsystem
         :param autorange: bool (if enable autorange)
@@ -68,7 +69,8 @@ class SMUDevice:
         """
         self.device.write('SENS:FUNC:CONC OFF')
         self.device.write('SENS:FUNC:ON "CURR"')
-        self.device.write(f'SENS:CURR:PROT {compl}')
+        if compl is not None:
+            self.device.write(f'SENS:CURR:PROT {compl}')
         if autorange:
             self.device.write('SENS:CURR:RANG:AUTO 1')
         else:
