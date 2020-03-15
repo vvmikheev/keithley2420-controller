@@ -104,7 +104,7 @@ def plot_fig(data, params, area, save=False, path=None, name=None):
 
 def save_data(data, path=None, name=None):
     """
-    Saves the data in .h5 file to a given path with a given name
+    Saves the data in .h5 format using a given path with a given name
     """
     try:
         with h5py.File(os.path.join(path, name), 'w') as f:
