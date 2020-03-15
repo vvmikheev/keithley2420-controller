@@ -1,4 +1,9 @@
-For SMU device controller only pyvisa is required
+This is a Keithley 2420 source meter unit controller.
+It allows you to control the device remotely.
+
+Class SMUDevice implies some basic functions of this source meter.
+
+For SMUDevice only pyvisa is required
 https://pyvisa.readthedocs.io/en/latest/introduction/getting.html
 
 However, for data processing numpy and matplotlib are necessary.
