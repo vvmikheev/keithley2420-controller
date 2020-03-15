@@ -1,0 +1,10 @@
+For SMU device controller only pyvisa is required
+https://pyvisa.readthedocs.io/en/latest/introduction/getting.html
+
+However, for data processing numpy and matplotlib are necessary.
+
+Also, depending on your connection, one has to install required drivers.
+For example, GPIB:USB connection requires NI GPIB driver.
+
+Almost all function explanations might be found after the declarations.
+If you have any questions please contact me: mikheev.vv@phystech.edu
