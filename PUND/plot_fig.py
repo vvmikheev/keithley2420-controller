@@ -5,6 +5,15 @@ import h5py
 
 
 def plot_fig(data, params, area, save=False, path=None, name=None):
+    """
+    plot and saves a graph for a given PUND measurement
+    :param data: dictionary (PUND measurements result)
+    :param params: dictionary (PUND sweep parameters)
+    :param area: float (contact area in cm^2)
+    :param save: bool (if save)
+    :param path: str (where to save)
+    :param name: str (filename)
+    """
     plt.figure(figsize=(12, 9))
     voltage = np.array(data['voltage'])
     current = np.array(data['current'])
@@ -94,6 +103,9 @@ def plot_fig(data, params, area, save=False, path=None, name=None):
 
 
 def save_data(data, path=None, name=None):
+    """
+    Saves the data in .h5 file to a given path with a given name
+    """
     try:
         with h5py.File(os.path.join(path, name), 'w') as f:
             for key in data.keys():
