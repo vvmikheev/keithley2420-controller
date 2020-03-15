@@ -80,7 +80,7 @@ class SMUDevice:
 
     def staircase_sweep(self, v_from, v_to, n_steps, delay=0.1):
         """
-        set up staircase sweep (DC IV)
+        set up staircase sweep (DC IV measurements)
         :param v_from: float (start value)
         :param v_to: float (start value)
         :param n_steps: int (number of steps)
