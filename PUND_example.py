@@ -1,16 +1,11 @@
 from SMU_device import SMUDevice
-import numpy as np
 from PUND.PUND_waveform import create_waveform
 from PUND.plot_fig import *
-import time
-import datetime
 
-time.sleep(0)
+
 instrument_id = 'GPIB0::24::INSTR'
 smu = SMUDevice(instrument_id)
 smu.connect()
-
-area = 200 ** 2 * 1e-8
 
 """
 params is a dictionary with key parameters for a PUND sweep.
@@ -33,6 +28,7 @@ params = {
             'space': 10,
             'n_cycles': 2,
         }
+area = 200 ** 2 * 1e-8  # contact area in cm^2
 
 waveform = []
 for _ in range(params['n_cycles']):
@@ -50,3 +46,4 @@ smu.disable_output()
 smu.check_for_errors()
 data = smu.get_traces()
 plot_fig(data, params, area, save=False)
+
