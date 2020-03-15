@@ -45,5 +45,5 @@ smu.disable_output()
 
 smu.check_for_errors()
 data = smu.get_traces()
-plot_fig(data, params, area, save=False)
+plot_fig(data, params, area, save=False)  # one can set save=True and call save_data() function
 
